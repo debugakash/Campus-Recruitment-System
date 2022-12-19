@@ -1,5 +1,0 @@
-using getui kit
-
-Column
-uk-heading-divider for divider
-
