@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard Panel</title>
+
+	
+<!-- CDN -->
+<link rel="shortcut icon" href="../logo/logo icon.ico" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script type="text/javascript" src="../js/companydisplay-script.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+    <!-- NAv -->
+<div class="uk-container-expand uk-sticky" uk-sticky="bottom: #offset">
+    <nav class="uk-navbar-nav uk-navbar-container uk-sticky" uk-navbar>
+    <div class="uk-navbar-left">
+        <a href="dashboard.html" class="uk-navbar-item uk-logo"><img src="../logo/logo.png" style="width: 50%;
+    margin-left: -38%;"></a>
+        <!-- <a class="uk-navbar-item">Student Panel</a> -->
+        <ul class="uk-navbar-nav" style="margin-left: -31%">
+            <li>
+                <a href="#">
+                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
+                    Students Panel
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="uk-navbar-center">
+        <form>
+            <input class="uk-input uk-form-width-large" type="text" placeholder="Search for Anything">
+            <button class="uk-button uk-button-primary"><span uk-icon="search"></span></button>
+        </form>
+    </div>
+
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar uk-navbar-nav">
+            <li class="uk-navbar uk-navbar-item"><a onclick="window.location.href='companydashboard.html'"><span uk-icon="home"></span></a></li>
+            <li class="uk-navbar uk-navbar-item"><a href="#"><span uk-icon="bell">
+                <div uk-dropdown="mode: click;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a href="#"></a></li>
+                <div class="uk-text-primary ">
+                    <li class="uk-heading-divider uk-text-center text-primary "><h4>Notifications</h4></li>
+                <li class="uk-heading-divider uk-text-center uk-text-muted ">No New Notifications</li> 
+               </div>
+            </ul>
+        </div>
+            </span></a></li>
+            <li class="uk-navbar uk-navbar-item"><a href="#"><span uk-icon="mail">
+                <div uk-dropdown="mode: click;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a href="#">
+                </a></li>
+               <div class="uk-text-primary ">
+                    <li class="uk-heading-divider uk-text-center text-primary "><h4>Messages</h4></li>
+                <li class="uk-heading-divider uk-text-center text-primary "><a href="#">See Messages</a></li>
+                <li class="uk-heading-divider uk-text-center uk-text-muted ">No new Messages</li> 
+               </div>
+
+            </ul>
+        </div>
+            </span></a></li>
+           <!--  <li class="uk-navbar uk-navbar-item"><a href="#"><span uk-icon="user"></span></a>
+                
+            </li> -->
+        <li>
+        <a href="#"><img class="uk-preserve-width uk-border-circle" src="https://instagram.fbho1-1.fna.fbcdn.net/vp/88ae251f0824d726146f9ed69309492e/5B12474B/t51.2885-19/s150x150/21224333_133377707277757_1157213624339529728_a.jpg" width="40" alt=""></a>
+        <div uk-dropdown="mode: click;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a href="#">
+                    <img class="profile-image" src="https://instagram.fbho1-1.fna.fbcdn.net/vp/88ae251f0824d726146f9ed69309492e/5B12474B/t51.2885-19/s150x150/21224333_133377707277757_1157213624339529728_a.jpg">
+                </a></li>
+               <div style="margin-top: -14%;" class="uk-text-primary ">
+                    <li class="uk-heading-divider uk-text-center text-primary "><h3>Akash Shakya</h3></li>
+                <li class="uk-heading-divider uk-text-center text-primary ">Dashboard</li>
+                <li class="uk-heading-divider uk-text-center text-primary ">My Account</li>
+                <li class="uk-heading-divider uk-text-center text-primary ">Settings</li> 
+               </div>
+
+            </ul>
+        </div>
+    </li>
+            <li class="uk-navbar uk-navbar-item"><a onclick="window.location.href='index.html'"><span uk-icon="sign-out"></span></a></li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+
+<!-- Section 2 -->
+<!-- <div class="uk-margin-large-top">
+    <div class="uk-container-small">
+        <div class="uk-card uk-card-default uk-width-1-2@m">
+            <div class="uk-card-header">
+                <div class="uk-grid-small uk-flex-middle" uk-grid>
+                    <div class="uk-width-expand">
+                        <h3 class="uk-card-title uk-margin-remove-bottom">Software Engineer</h3>
+                        <h4 class="uk-margin-remove-top uk-text-primary">Facebook Inc.</h4>
+                        <p class="uk-text-meta uk-margin-remove-top"><time datetime="2016-04-01T19:00">April 01, 2016</time></p>
+                    </div>
+                </div>
+            </div>
+    <div class="uk-card-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+    </div>
+    <div class="uk-card-footer">
+        <a href="#" class="uk-button uk-button-text">Read more</a>
+    </div>
+</div>
+    </div>
+</div> -->
+
+<div class="uk-margin uk-padding-large uk-margin-remove-top ">
+   <div class="uk-card-default">
+        <table id="comp-table" class="uk-table uk-table-responsive uk-table-hover uk-table-divider">
+    <thead>
+        <tr>
+            <th class="uk-width-medium">Company Name</th>
+            <th class="uk-width-medium">Job Category</th>
+            <th class="uk-width-medium">Role</th>
+            <!-- <th>Job description</th>
+            <th class="uk-width-medium">Minimum Qualification</th>
+            <th class="uk-width-medium">Skills Required</th>
+            <th class="uk-width-medium">Expected Salary</th>
+            <th class="uk-width-medium">Job Location</th>
+            <th class="uk-width-medium">Working hour</th> -->
+            <th class="uk-width-medium">Last Apply Date</th>
+            <!-- <th class="uk-width-medium">Entry Date</th> -->
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="tr">
+            <td id="companyname">Facebook Inc.</td>
+            <td id="jobcat">Software Engineer</td>
+            <td id="role">Software Engineer</td>
+        
+            <td id="lastapld">13-05-2018</td>
+            <!-- <td id="entd">Software Engineer</td> -->
+            <td><a id="action" class="uk-button uk-button-primary uk-border-rounded uk-toggle" type="button"><span uk-icon="info"></span></a></td>   
+        </tr>
+
+<!-- <div id="job_info_modal" uk-modal>
+    <div class="uk-modal-dialog">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Job Details</h2>
+        </div>
+
+        <div id="sample_data">
+           <div class="uk-modal-body" uk-overflow-auto>
+               <h3>Company name</h3>
+               <p>Facebook Inc.</p>
+           </div>
+        </div>
+
+        <div class="uk-modal-footer uk-text-right">
+            
+        </div>
+
+    </div>
+</div> -->
+
+<div id="xyz"></div>
+<!-- 
+<div id="modal-for-job-description">
+    
+</div> -->
+
+        
+    </tbody>
+</table>
+   </div>
+</div>
+
+
+</body>
+</html>

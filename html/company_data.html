@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+
+    
+<!-- CDN -->
+<link rel="shortcut icon" href="../logo/logo icon.ico" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script type="text/javascript" src="../js/company_data.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+    <!-- NAv -->
+<div class="uk-container-expand uk-sticky" uk-sticky="bottom: #offset">
+    <nav class="uk-navbar-nav uk-navbar-container uk-sticky" uk-navbar>
+    <div class="uk-navbar-left">
+        <a href="admin.html" class="uk-navbar-item uk-logo"><img src="../logo/logo.png" style="width: 50%;
+    margin-left: -38%;"></a>
+        <!-- <a class="uk-navbar-item">Student Panel</a> -->
+        <ul class="uk-navbar-nav" style="margin-left: -31%">
+            <li>
+                <a href="#">
+                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
+                    Admin Panel
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="uk-navbar-center">
+        <form>
+            <input class="uk-input uk-form-width-large" type="text" placeholder="Search for Anything">
+            <button class="uk-button uk-button-primary"><span uk-icon="search"></span></button>
+        </form>
+    </div>
+
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar uk-navbar-nav">
+            <li class="uk-navbar uk-navbar-item"><a onclick="window.location.href='admin.html'"><span uk-icon="home"></span></a></li>
+            <li class="uk-navbar uk-navbar-item"><a href="#"><span uk-icon="bell">
+                <div uk-dropdown="mode: click;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a href="#"></a></li>
+                <div class="uk-text-primary ">
+                    <li class="uk-heading-divider uk-text-center text-primary "><h4>Notifications</h4></li>
+                <li class="uk-heading-divider uk-text-center uk-text-muted ">No New Notifications</li> 
+               </div>
+            </ul>
+        </div>
+            </span></a></li>
+            <li class="uk-navbar uk-navbar-item"><a href="#"><span uk-icon="mail">
+                <div uk-dropdown="mode: click;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a href="#">
+                </a></li>
+               <div class="uk-text-primary ">
+                    <li class="uk-heading-divider uk-text-center text-primary "><h4>Messages</h4></li>
+                <li class="uk-heading-divider uk-text-center text-primary "><a href="#">See Messages</a></li>
+                <li class="uk-heading-divider uk-text-center uk-text-muted ">No new Messages</li> 
+               </div>
+
+            </ul>
+        </div>
+            </span></a></li>
+           <!--  <li class="uk-navbar uk-navbar-item"><a href="#"><span uk-icon="user"></span></a>
+                
+            </li> -->
+        <li>
+        <a href="#"><span uk-icon="github-alt"></span></a>
+        <div uk-dropdown="mode: click;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a href="#">
+                    <span style="padding-left: 35%;margin-bottom: 20%;" uk-icon="icon:github-alt; ratio: 2"></span>
+                </a></li>
+               <div style="margin-top: -14%;" class="uk-text-primary ">
+                    <li class="uk-heading-divider uk-text-center text-primary "><h3>Admin</h3></li>
+                <li class="uk-heading-divider uk-text-center text-primary ">Dashboard</li>
+                <li class="uk-heading-divider uk-text-center text-primary ">My Account</li>
+                <li class="uk-heading-divider uk-text-center text-primary ">Settings</li> 
+               </div>
+
+            </ul>
+        </div>
+    </li>
+            <li class="uk-navbar uk-navbar-item"><a onclick="window.location.href='index.html'"><span uk-icon="sign-out"></span></a></li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+
+<!-- Student Data List -->
+<div class="uk-margin uk-padding-large uk-margin-remove-top ">
+<div class="uk-card-default uk-card-body uk-card ">
+
+<table id="comp-table-admin" class="uk-table uk-table-justify uk-table-divider">
+    <thead>
+        <tr>
+            <th class="uk-width-auto">Company Name</th>
+            <th class="uk-width-auto">Last Job Posted</th>
+            <th class="uk-width-auto">No. of Job Poster</th>
+            <th class="uk-width-auto">No. of Applicants</th>
+            <th class="uk-width-auto">Last job posted Title</th>
+            <th class="uk-width-auto">Contact</th>
+            <th class="uk-width-auto">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="tr">
+            <td id="companyname" class="uk-width-auto">Facebook Inc.</td>
+            <td id="lastjobposted" class="uk-width-auto">24 July 2018</td>
+            <td id="noofjobposter" class="uk-width-auto">5</td>
+            <td id="totalapplicants" class="uk-width-auto">35</td>
+            <td id="lastjobtitle" class="uk-width-auto">Data Scientist Intern</td>
+
+            <td id="compcontact"><a class="uk-button uk-button-primary uk-border-rounded" type="button">Contact</a></td>
+            <td id="compdelete"><button class="uk-button uk-button-danger uk-border-rounded" type="button" onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+            <td class="uk-width-auto">Facebook Inc.</td>
+            <td class="uk-width-auto">24 July 2018</td>
+            <td class="uk-width-auto">5</td>
+            <td class="uk-width-auto">35</td>
+            <td class="uk-width-auto">Data Scientist Intern</td>
+
+            <td><a class="uk-button uk-button-primary uk-border-rounded" type="button">Contact</a></td>
+            <td><button class="uk-button uk-button-danger uk-border-rounded" type="button" onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+        <tr>
+            <td class="uk-width-auto">Facebook Inc.</td>
+            <td class="uk-width-auto">24 July 2018</td>
+            <td class="uk-width-auto">5</td>
+            <td class="uk-width-auto">35</td>
+            <td class="uk-width-auto">Data Scientist Intern</td>
+
+            <td><a class="uk-button uk-button-primary uk-border-rounded" type="button">Contact</a></td>
+            <td><button class="uk-button uk-button-danger uk-border-rounded" type="button" onclick="deleteRow(this)">Delete</button></td>
+        </tr>
+
+        <!-- <div id="comp_info_modal" uk-modal>
+    <div class="uk-modal-dialog">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Company Details</h2>
+        </div>
+
+        <div id="comp_data">
+            
+        </div>
+
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button uk-button-primary" type="button">Save</button>
+        </div>
+
+    </div>
+</div> -->
+<div id="xyz"></div>        
+    </tbody>
+</table>
+
+<script>
+function deleteRow(r) {
+    var i = r.parentNode.parentNode.rowIndex;
+    document.getElementById("comp-table-admin").deleteRow(i);
+}
+</script>
+
+</div>
+</div>
+
+
+</body>
+</html>

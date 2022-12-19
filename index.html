@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="bg">
+<head>
+	<title>Login Panel</title>
+
+<!-- CDN -->
+<link rel="shortcut icon" href="./logo/logo icon.ico" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+
+</head>
+<!-- 
+<body class="bg">
+  <style type="text/css">
+    .bg{
+      /*background-color: black;*/
+      /*background-image: url("b2.jpg");*/
+          background: url(b2.jpg);
+    background-image: url(b2.jpg);
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    background-attachment: fixed;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+          /*;*/
+    }
+  </style> -->
+
+<!-- <h1>Test</h1> -->
+<ul class="uk-tab uk-margin uk-margin-top uk-flex-center" uk-switcher >
+	<li class="uk-active " href=""><a href="">For Student</a></li>
+	<li><a href="">For Company</a></li>
+	<li><a href="">For Admin</a></li>
+</ul>
+<ul class="uk-switcher uk-align-center uk-padding-large uk-position-center uk-background-muted">
+    <div class="bg">
+      <li style="background: transparent;" class="uk-padding-small uk-card-hover uk-card-body uk-card-default">
+      <form name="studform">
+        <!-- <label class="uk-form-label">Login</label> -->
+      <legend class="uk-legend uk-align-center">Student Login</legend>
+        <div class="uk-margin">
+            <div class="uk-inline uk-flex-center">
+                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                <input class="uk-input" type="text" placeholder="Enrollment Id" id="enrollid">
+            </div>
+        </div>
+
+        <div class="uk-margin">
+            <div class="uk-inline">
+                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                <input class="uk-input" type="Password" placeholder="Password" id="studpassword">
+            </div>
+        </div>
+        <div class="uk-margin">
+            <div class="uk-inline">
+                <input  type="submit" onclick="studentLogin()" class="uk-button uk-button-primary" type="submit" name="Login" value="Login" name="Login">
+            </div>
+        </div>
+        <div class="uk-margin">
+        <p> To register new account <span>→</span> <a class="uk-button uk-button-secondary" href="#modal-student" uk-toggle> Click Here</a></p>
+        <div class="clear"></div>
+      </div>
+      <!-- MODAL FORM START -->
+      <div id="modal-student" uk-modal>
+    <div class="uk-modal-dialog">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Register as New Student</h2>
+        </div>
+
+        <div class="uk-modal-body" uk-overflow-auto>
+
+            <!-- FORM Start -->
+            <form id="update-reg-details">
+    <fieldset class="uk-fieldset">
+
+
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: user"></span>
+              <input id="username" class="uk-input uk-form-width-large" type="text" placeholder="User Name" >
+            </div>  
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: mail"></span>
+              <input id="email" class="uk-input uk-form-width-large" type="email" placeholder="Email" required="required">
+          </div>
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+              <input id="password" class="uk-input uk-form-width-large" type="password" placeholder="Password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 6 characters' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" required="required">
+          </div>
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+              <input id="confirmpassword" class="uk-input uk-form-width-large" type="password" placeholder="Confirm Password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Please enter the same Password as above' : '');" required="required">
+          </div>
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: pencil"></span>
+              <input id="enrollmentid" class="uk-input uk-form-width-large" type="text" placeholder="Enrollment ID">
+          </div>
+        </div>
+        <div class="uk-margin">
+          <label class="uk-label">Date Of Birth</label>
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: calendar"></span>
+              <input id="dob" class="uk-input uk-form-width-large" type="date" placeholder="Date Of Birth">
+          </div>
+        </div>
+        <div class="uk-margin">
+            <label class="uk-label">Gender</label>
+            <select id="gender" class="uk-select uk-form-width-large">
+                    <option>-Select-</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>               
+                </select>                 
+        </div>
+        <div class="uk-margin">
+          <div class="uk-inline">
+            <span class="uk-form-icon" uk-icon="icon: phone"></span>
+              <input id="phoneno" class="uk-input uk-form-width-large" type="tel" placeholder="Phone No.">
+          </div>
+        </div>
+        <div class="uk-margin">
+              <textarea id="address" class="uk-textarea uk-form-width-large" rows="5" placeholder="Address"></textarea>
+        </div>
+        
+        <input class="uk-modal-close uk-button uk-button-primary" type="submit" onclick="submitData()" name="submit" placeholder="Submit" name="Submit">
+
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            
+        </div>
+        <script type="text/javascript" src="./js/stud_reg_details.js"></script>
+
+
+    </fieldset>
+</form>
+
+        </div>
+
+    </div>
+</div>
+        </div>
+    </div>
+      <!-- <div class="uk-button-large">
+        <input class="uk-button uk-button-primary" type="submit" name="Login">
+      </div> -->
+    </form>
+  </li>
+    </div>
+
+      <li class="uk-padding-small uk-card-hover uk-card-body uk-card-default">
+    	<form>
+			<legend class="uk-legend uk-align-center">Company Login</legend>
+		    <div class="uk-margin">
+		        <div class="uk-inline">
+		            <span class="uk-form-icon" uk-icon="icon: user"></span>
+		            <input class="uk-input" type="text" placeholder="Company Id" id="companyId">
+		        </div>
+		    </div>
+		    <div class="uk-margin">
+		        <div class="uk-inline">
+		            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+		            <input class="uk-input" type="Password" placeholder="Password" id="companypass">
+		        </div>
+		    </div>
+			  <div class="uk-margin">
+		        <div class="uk-inline">
+		            <input onclick="companyLogin()" class="uk-button uk-button-primary" type="submit" name="Login" >
+		        </div>
+		    </div>
+		    <div class="uk-margin">
+				<p> To register for company <span>→</span> <a class="uk-button uk-button-secondary" href="#modal-company" uk-toggle> Click Here</a></p>
+				<div class="clear"></div>
+			</div>
+			<!-- MODAL FORM START -->
+			<div id="modal-company" uk-modal>
+    <div class="uk-modal-dialog">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Register Form for company</h2>
+        </div>
+
+        <div class="uk-modal-body" uk-overflow-auto>
+
+            <!-- FORM Start -->
+            <form id="update-comp-post-job">
+    <fieldset class="uk-fieldset">
+
+    	<div class="uk-margin">
+        	<div class="uk-inline">
+	        	<span class="uk-form-icon" uk-icon="icon: pencil"></span>
+	            <input id="compid" class="uk-input uk-form-width-large" type="text" placeholder="Company ID">
+        	</div>
+        </div>
+        <div class="uk-margin">
+        	<div class="uk-inline">
+	        	<span class="uk-form-icon" uk-icon="icon: uikit"></span>
+	            <input id="compname" class="uk-input uk-form-width-large" type="text" placeholder="Company Name">
+        	</div>
+        </div>
+        <div class="uk-margin">
+        	<div class="uk-inline">
+		        <span class="uk-form-icon" uk-icon="icon: user"></span>
+            	<input id="contactperson" class="uk-input uk-form-width-large" type="text" placeholder="Contact Person">
+            </div>	
+        </div>
+        <div class="uk-margin">
+        	<div class="uk-inline">
+        		<span class="uk-form-icon" uk-icon="icon: mail"></span>
+            	<input id="compemail" class="uk-input uk-form-width-large" type="email" placeholder="Email">
+        	</div>
+        </div>
+        <div class="uk-margin">
+        	<div class="uk-inline">
+	        	<span class="uk-form-icon" uk-icon="icon: lock"></span>
+	            <input id="comppassword" class="uk-input uk-form-width-large" type="password" placeholder="Password">
+        	</div>
+        </div>
+        <div class="uk-margin">
+        	<div class="uk-inline">
+	        	<span class="uk-form-icon" uk-icon="icon: lock"></span>
+	            <input id="compconfirmpassword" class="uk-input uk-form-width-large" type="password" placeholder="Confirm Password">
+        	</div>
+        </div>
+        <div class="uk-margin">
+        	<div class="uk-inline">
+	        	<span class="uk-form-icon" uk-icon="icon: location"></span>
+	            <input id="city" class="uk-input uk-form-width-large" type="text" placeholder="City">
+        	</div>
+        </div>
+        <div class="uk-margin">
+            	<textarea id="compaddress" class="uk-textarea uk-form-width-large" rows="5" placeholder="Address"></textarea>
+        </div>
+        <div class="uk-margin">
+        	<div class="uk-inline">
+	        	<span class="uk-form-icon" uk-icon="icon: world"></span>
+	            <input id="website" class="uk-input uk-form-width-large" type="text" placeholder="Website">
+        	</div>
+        </div>
+        
+        <input class="uk-button uk-button-primary uk-modal-close" type="submit" onclick="submitcompData()" name="submit" placeholder="Submit">
+
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            
+        </div>
+      
+
+
+    </fieldset>
+</form>
+
+        </div>
+
+    </div>
+</div>
+        </div>
+    </div>
+			<!-- <div class="uk-button-large">
+				<input class="uk-button uk-button-primary" type="submit" name="Login">
+			</div> -->
+		</form>
+
+	</li>
+      <li class="uk-padding-small uk-card-hover uk-card-body uk-card-default">
+    	<form>
+			<legend class="uk-legend uk-align-center">Admin Login</legend>
+		    <div class="uk-margin">
+		        <div class="uk-inline">
+		            <span class="uk-form-icon" uk-icon="icon: user"></span>
+		            <input class="uk-input" type="text" placeholder="Admin" id="adminId">
+		        </div>
+		    </div>
+
+		    <div class="uk-margin">
+		        <div class="uk-inline">
+		            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+		            <input class="uk-input" type="Password" placeholder="Password" id="adminpass">
+		        </div>
+		    </div>
+			  <div class="uk-margin">
+		        <div class="uk-inline">
+		            <input onclick="adminLogin()" class="uk-button uk-button-danger" type="submit" name="Login" >
+		    </div>
+		</form>
+	</li>
+</ul>
+
+<!-- <script type="text/javascript" src="./js/comp_reg_details.js"></script> -->
+<script type="text/javascript">
+	function studentLogin (e) {
+  // body... 
+  // preventDefault(e);
+  // document.form["studform"]["enrollid"].value
+
+  var username = document.getElementById('enrollid').value;
+  var password =  document.getElementById('studpassword').value;
+
+  // console.log(username);
+  // console.log(password);
+
+  if (username != "test" && password != "test") {
+    alert("Login id and password are Incorrect");
+  }else  {
+    window.open("./html/dashboard.html");
+  }
+  e.preventDefault();
+}
+
+function companyLogin(e) {
+  // body... 
+  // preventDefault(e);
+  // document.form["studform"]["enrollid"].value
+
+  var username = document.getElementById('companyId').value;
+  var password =  document.getElementById('companypass').value;
+
+  // console.log(username);
+  // console.log(password);
+
+  if (username != "test" && password != "test") {
+    alert("Login id and password are Incorrect");
+  } else {
+    window.open("./html/companydashboard.html");
+  }
+  e.preventDefault();
+}
+
+function adminLogin(e) {
+  // body... 
+  // preventDefault(e);
+  // document.form["studform"]["enrollid"].value
+
+  var username = document.getElementById('adminId').value;
+  var password =  document.getElementById('adminpass').value;
+
+  // console.log(username);
+  // console.log(password);
+
+  if (username != "test" && password != "test") {
+    alert("Login id and password are Incorrect");
+  } else {
+    window.open("./html/admin.html");
+  }
+  e.preventDefault();
+}
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Students Panel</title>
+
+ <style type="text/css">
+    .profile-image{
+        padding: 45px;
+        margin-top: -27%;
+        border-radius: 50%;
+}</style>
+<!-- CDN -->
+<link rel="shortcut icon" href="../logo/logo icon.ico" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.40/js/uikit-icons.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+<div class="uk-container-expand uk-sticky" uk-sticky="bottom: #offset">
+    <nav class="uk-navbar-nav uk-navbar-container uk-sticky" uk-navbar>
+    <div class="uk-navbar-left">
+        <a href="dashboard.html" class="uk-navbar-item uk-logo"><img src="../logo/logo.png" style="width: 50%;
+    margin-left: -38%;"></a>
+        <!-- <a class="uk-navbar-item">Student Panel</a> -->
+        <ul class="uk-navbar-nav" style="margin-left: -31%">
+            <li>
+                <a href="#">
+                    <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>
+                    Students Panel
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="uk-navbar-center">
+        <form>
+            <input class="uk-input uk-form-width-large" type="text" placeholder="Search for Anything">
+            <button class="uk-button uk-button-primary"><span uk-icon="search"></span></button>
+        </form>
+    </div>
+
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar uk-navbar-nav">
+            <li class="uk-navbar uk-navbar-item"><a onclick="window.location.href='companydashboard.html'"><span uk-icon="home"></span></a></li>
+            <li class="uk-navbar uk-navbar-item"><a href="#"><span uk-icon="bell">
+                <div uk-dropdown="mode: click;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a href="#"></a></li>
+                <div class="uk-text-primary ">
+                    <li class="uk-heading-divider uk-text-center text-primary "><h4>Notifications</h4></li>
+                <li class="uk-heading-divider uk-text-center uk-text-muted ">No New Notifications</li> 
+               </div>
+            </ul>
+        </div>
+            </span></a></li>
+            <li class="uk-navbar uk-navbar-item"><a href="#"><span uk-icon="mail">
+                <div uk-dropdown="mode: click;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a href="#">
+                </a></li>
+               <div class="uk-text-primary ">
+                    <li class="uk-heading-divider uk-text-center text-primary "><h4>Messages</h4></li>
+                <li class="uk-heading-divider uk-text-center text-primary "><a href="#">See Messages</a></li>
+                <li class="uk-heading-divider uk-text-center uk-text-muted ">No new Messages</li> 
+               </div>
+
+            </ul>
+        </div>
+            </span></a></li>
+           <!--  <li class="uk-navbar uk-navbar-item"><a href="#"><span uk-icon="user"></span></a>
+                
+            </li> -->
+        <li>
+        <a href="#"><img class="uk-preserve-width uk-border-circle" src="https://instagram.fbho1-1.fna.fbcdn.net/vp/88ae251f0824d726146f9ed69309492e/5B12474B/t51.2885-19/s150x150/21224333_133377707277757_1157213624339529728_a.jpg" width="40" alt="">
+</a>
+        <div uk-dropdown="mode: click;">
+            <ul class="uk-nav uk-dropdown-nav">
+                <li><a href="#">
+                    <img class="profile-image" src="https://instagram.fbho1-1.fna.fbcdn.net/vp/88ae251f0824d726146f9ed69309492e/5B12474B/t51.2885-19/s150x150/21224333_133377707277757_1157213624339529728_a.jpg">
+                </a></li>
+               <div style="margin-top: -14%;" class="uk-text-primary ">
+                    <li class="uk-heading-divider uk-text-center text-primary "><h3>Akash Arya</h3></li>
+                <li class="uk-heading-divider uk-text-center text-primary ">Dashboard</li>
+                <li class="uk-heading-divider uk-text-center text-primary ">My Account</li>
+                <li class="uk-heading-divider uk-text-center text-primary ">Settings</li> 
+               </div>
+
+            </ul>
+        </div>
+    </li>
+            <li class="uk-navbar uk-navbar-item"><a onclick="window.location.href='index.html'"><span uk-icon="sign-out"></span></a></li>
+        </ul>
+    </div>
+
+</nav>
+</div>
+
+<!-- Table  -->
+
+<div class="uk-margin uk-padding-large uk-card-default uk-margin-remove-top">
+<table id="exam-table" class="uk-table uk-table-middle uk-table-divider">
+    <thead>
+        <tr>
+            <th class="uk-width-small">Given Date</th>
+            <th class="uk-width-small">Exam Name</th>
+            <th>Link</th>
+            <th class="uk-width-small">Type</th>
+            <th class="uk-width-small">Last Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>02/08/18</td>
+            <td>Aptitude</td>
+            <td class="uk-link"><a target="__blank" href="https://www.pariksha.co">https://pariksha.com</a></td>
+            <td>Objective</td>
+            <td>10/08/18</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script type="text/javascript" src="../js/give test.js"></script>
+</body>
+</html>
